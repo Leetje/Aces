@@ -1,4 +1,4 @@
-__author__ = 'leethomas'
+__author__ = 'leetje'
 
 '''
 Created on Jan 10, 2013
@@ -257,6 +257,7 @@ cha_table = {
 }
 
 rep_table = {
+    0: {"bp_bonus": 0},
     1: {"bp_bonus": 0},
     2: {"bp_bonus": 0},
     3: {"bp_bonus": 0},
@@ -286,300 +287,360 @@ rep_table = {
 
 skills_table = {
     "Accounting": {"bp_cost": 3, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                   "relevantabilities": {"inte": None}, "req": {"Mathematics": 85}},
+                   "relevantabilities": {"Inteligence": None}, "req": ("Mathematics", 85)},
     "Administration": {"bp_cost": 5, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                       "relevantabilities": {"inte": None, "wis": None, "cha": None}, "req": {}},
+                       "relevantabilities": {"Inteligence": None, "Wisdom": None, "Charisma": None}, "req": None},
     "Agriculture": {"bp_cost": 2, "die": 10, "universal": True, "tally": 0, "skill": 100,
-                    "relevantabilities": {"wis": None}, "req": {}},
+                    "relevantabilities": {"Wisdom": None}, "req": None},
     "AnimalEmpathy": {"bp_cost": 2, "die": 10, "universal": False, "tally": 0, "skill": 100,
-                      "relevantabilities": {"wis": None, "cha": None}, "req": {}},
+                      "relevantabilities": {"Wisdom": None, "Charisma": None}, "req": None},
     "AnimalHerding": {"bp_cost": 1, "die": 10, "universal": False, "tally": 0, "skill": 100,
-                      "relevantabilities": {"wis": None}, "req": {}},
+                      "relevantabilities": {"Wisdom": None}, "req": None},
     "AnimalHusbandry": {"bp_cost": 1, "die": 10, "universal": True, "tally": 0, "skill": 100,
-                        "relevantabilities": {"wis": None}, "req": {}},
+                        "relevantabilities": {"Wisdom": None}, "req": None},
     "AnimalLore": {"bp_cost": 1, "die": 10, "universal": False, "tally": 0, "skill": 100,
-                   "relevantabilities": {"inte": None}, "req": {}},
+                   "relevantabilities": {"Inteligence": None}, "req": None},
     "AnimalMimicry": {"bp_cost": 1, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                      "relevantabilities": {"wis": None}, "req": {}},
+                      "relevantabilities": {"Wisdom": None}, "req": None},
     "AnimalTraining": {"bp_cost": 10, "die": 10, "universal": False, "tally": 0, "skill": 100,
-                       "relevantabilities": {"inte": None, "wis": None},
-                       "req": {"AnimalEmpathy": 49, "AnimalLore": 49}},
+                       "relevantabilities": {"Inteligence": None, "Wisdom": None},
+                       "req": ("AnimalEmpathy", 49, "AnimalLore", 49)},
     "Appraisal": {"bp_cost": 1, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                  "relevantabilities": {"inte": None, "wis": None}, "req": {}},
+                  "relevantabilities": {"Inteligence": None, "Wisdom": None}, "req": None},
     "ArtisticAbility": {"bp_cost": 1, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                        "relevantabilities": {"dex": None, "wis": None}, "req": {}},
+                        "relevantabilities": {"Dexterity": None, "Wisdom": None}, "req": None},
     "Blacksmithing/Metalworking": {"bp_cost": 7, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                                   "relevantabilities": {"stre": None, "inte": None}, "req": {}},
-    "Boating": {"bp_cost": 2, "die": 8, "universal": True, "tally": 0, "skill": 100, "relevantabilities": {"wis": None},
-                "req": {}},
+                                   "relevantabilities": {"Strength": None, "Inteligence": None}, "req": None},
+    "Boating": {"bp_cost": 2, "die": 8, "universal": True, "tally": 0, "skill": 100,
+                "relevantabilities": {"Wisdom": None},
+                "req": None},
     "Bookbinding": {"bp_cost": 1, "die": 10, "universal": False, "tally": 0, "skill": 100,
-                    "relevantabilities": {"dex": None, "inte": None},
-                    "req": {"Seamstress/Tailor": 85, "Leatherworking": 85}},
+                    "relevantabilities": {"Dexterity": None, "Inteligence": None},
+                    "req": ("Seamstress/Tailor", 85, "Leatherworking", 85)},
     "Botany": {"bp_cost": 1, "die": 8, "universal": False, "tally": 0, "skill": 100,
-               "relevantabilities": {"inte": None}, "req": {}},
+               "relevantabilities": {"Inteligence": None}, "req": None},
     "Brewing": {"bp_cost": 1, "die": 12, "universal": False, "tally": 0, "skill": 100,
-                "relevantabilities": {"inte": None}, "req": {}},
+                "relevantabilities": {"Inteligence": None}, "req": None},
     "BroncBusting": {"bp_cost": 2, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                     "relevantabilities": {"stre": None, "wis": None, "cha": None}, "req": {"Riding": 80}},
+                     "relevantabilities": {"Strength": None, "Wisdom": None, "Charisma": None}, "req": ("Riding", 80)},
     "Calligraphy/Signmaking": {"bp_cost": 1, "die": 10, "universal": False, "tally": 0, "skill": 100,
-                                   "relevantabilities": {"dex": None}, "req": {"ReadingComp./Penmanship": 90}},
+                               "relevantabilities": {"Dexterity": None}, "req": ("ReadingComp./Penmanship", 90)},
     "Camouflage": {"bp_cost": 6, "die": 10, "universal": True, "tally": 0, "skill": 100,
-                        "relevantabilities": {"wis": None}, "req": {}},
+                   "relevantabilities": {"Wisdom": None}, "req": None},
     "Carpentry": {"bp_cost": 2, "die": 10, "universal": True, "tally": 0, "skill": 100,
-                  "relevantabilities": {"inte": None}, "req": {}},
+                  "relevantabilities": {"Inteligence": None}, "req": None},
     "Cartography": {"bp_cost": 1, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                    "relevantabilities": {"inte": None}, "req": {"ReadingComp./Penmanship": 90}},
+                    "relevantabilities": {"Inteligence": None}, "req": ("ReadingComp./Penmanship", 90)},
     "Chemistry": {"bp_cost": 4, "die": 6, "universal": False, "tally": 0, "skill": 100,
-                  "relevantabilities": {"inte": None}, "req": {"Mathematics": 85}},
+                  "relevantabilities": {"Inteligence": None}, "req": ("Mathematics", 85)},
     "Climbing": {"bp_cost": 2, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                 "relevantabilities": {"stre": None, "dex": None}, "req": {}},
+                 "relevantabilities": {"Strength": None, "Dexterity": None}, "req": None},
     "Cobbling": {"bp_cost": 1, "die": 12, "universal": False, "tally": 0, "skill": 100,
-                 "relevantabilities": {"dex": None}, "req": {"Leatherworking": 85}},
+                 "relevantabilities": {"Dexterity": None}, "req": ("Leatherworking", 85)},
     "Cooking": {"bp_cost": 1, "die": 12, "universal": True, "tally": 0, "skill": 100,
-                "relevantabilities": {"wis": None}, "req": {}},
+                "relevantabilities": {"Wisdom": None}, "req": None},
     "Culture": {"bp_cost": 1, "die": 12, "universal": False, "tally": 0, "skill": 100,
-                "relevantabilities": {"inte": None}, "req": {}},
+                "relevantabilities": {"Inteligence": None}, "req": None},
     "CurrentAffairs": {"bp_cost": 2, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                            "relevantabilities": {"wis": None}, "req": {}},
+                       "relevantabilities": {"Wisdom": None}, "req": None},
     "Deception": {"bp_cost": 4, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                  "relevantabilities": {"inte": None, "cha": None}, "req": {}},
+                  "relevantabilities": {"Inteligence": None, "Charisma": None}, "req": None},
     "Demolition": {"bp_cost": 6, "die": 4, "universal": True, "tally": 0, "skill": 100,
-                   "relevantabilities": {"inte": None}, "req": {}},
+                   "relevantabilities": {"Inteligence": None}, "req": None},
     "Dentistry": {"bp_cost": 5, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                  "relevantabilities": {"inte": None}, "req": {}},
+                  "relevantabilities": {"Inteligence": None}, "req": None},
     "Diplomacy": {"bp_cost": 4, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                       "relevantabilities": {"inte": None, "cha": None}, "req": {}},
+                  "relevantabilities": {"Inteligence": None, "Charisma": None}, "req": None},
     "Disguise": {"bp_cost": 4, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                      "relevantabilities": {"inte": None, "cha": None}, "req": {}},
+                 "relevantabilities": {"Inteligence": None, "Charisma": None}, "req": None},
     "Distraction": {"bp_cost": 1, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                    "relevantabilities": {"cha": None}, "req": {}},
+                    "relevantabilities": {"Charisma": None}, "req": None},
     "Driving(Stage or Wagon)": {"bp_cost": 3, "die": 20, "universal": True, "tally": 0, "skill": 100,
-                                   "relevantabilities": {"wis": None}, "req": {}},
-    "EngineeringDesign": {"bp_cost": 7, "die": 4, "universal": False, "tally": 0, "skill": 100,
-                          "relevantabilities": {"inte": None}, "req": {"Mathematics": 60}},
+                                "relevantabilities": {"Wisdom": None}, "req": None},
+    "Engineering Design": {"bp_cost": 7, "die": 4, "universal": False, "tally": 0, "skill": 100,
+                           "relevantabilities": {"Inteligence": None}, "req": ("Mathematics", 60)},
     "EscapeArtist": {"bp_cost": 8, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                          "relevantabilities": {"dex": None, "inte": None}, "req": {}},
+                     "relevantabilities": {"Dexterity": None, "Inteligence": None}, "req": None},
     "FastTalking": {"bp_cost": 1, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                    "relevantabilities": {"cha": None}, "req": {}},
+                    "relevantabilities": {"Charisma": None}, "req": None},
     "Fire-Building/Extinguishing": {"bp_cost": 1, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                                    "relevantabilities": {"wis": None}, "req": {}},
+                                    "relevantabilities": {"Wisdom": None}, "req": None},
     "Fishing": {"bp_cost": 1, "die": 10, "universal": True, "tally": 0, "skill": 100,
-                     "relevantabilities": {"wis": None}, "req": {}},
+                "relevantabilities": {"Wisdom": None}, "req": None},
     "Forgery": {"bp_cost": 10, "die": 4, "universal": True, "tally": 0, "skill": 100,
-                "relevantabilities": {"dex": None, "inte": None}, "req": {"ReadingComp./Penmanship": 65}},
+                "relevantabilities": {"Dexterity": None, "Inteligence": None}, "req": ("ReadingComp./Penmanship", 65)},
     "FortuneTelling": {"bp_cost": 1, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                            "relevantabilities": {"cha": None}, "req": {}},
+                       "relevantabilities": {"Charisma": None}, "req": None},
     "Gambling": {"bp_cost": 7, "die": 6, "universal": False, "tally": 0, "skill": 100,
-                      "relevantabilities": {"wis": None, "cha": None}, "req": {}},
+                 "relevantabilities": {"Wisdom": None, "Charisma": None}, "req": None},
     "Gaming": {"bp_cost": 1, "die": 8, "universal": True, "tally": 0, "skill": 100,
-               "relevantabilities": {"dex": None, "inte": None}, "req": {}},
+               "relevantabilities": {"Dexterity": None, "Inteligence": None}, "req": None},
     "Geology": {"bp_cost": 4, "die": 6, "universal": False, "tally": 0, "skill": 100,
-                     "relevantabilities": {"inte": None}, "req": {}},
+                "relevantabilities": {"Inteligence": None}, "req": None},
     "GleanInformation": {"bp_cost": 2, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                         "relevantabilities": {"inte": None, "wis": None, "cha": None}, "req": {}},
+                         "relevantabilities": {"Inteligence": None, "Wisdom": None, "Charisma": None}, "req": None},
     "GracefulEntrance/Exit": {"bp_cost": 1, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                                   "relevantabilities": {"cha": None}, "req": {}},
+                              "relevantabilities": {"Charisma": None}, "req": None},
     "Gunsmithing": {"bp_cost": 8, "die": 6, "universal": False, "tally": 0, "skill": 100,
-                    "relevantabilities": {"dex": None, "inte": None}, "req": {}},
+                    "relevantabilities": {"Dexterity": None, "Inteligence": None}, "req": None},
     "Hiding": {"bp_cost": 3, "die": 6, "universal": True, "tally": 0, "skill": 100,
-               "relevantabilities": {"dex": None, "inte": None}, "req": {}},
+               "relevantabilities": {"Dexterity": None, "Inteligence": None}, "req": None},
     "History": {"bp_cost": 1, "die": 12, "universal": False, "tally": 0, "skill": 100,
-                "relevantabilities": {"inte": None}, "req": {"ReadingComp./Penmanship": 80}},
+                "relevantabilities": {"Inteligence": None}, "req": ("ReadingComp./Penmanship", 80)},
     "Hunting": {"bp_cost": 5, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                "relevantabilities": {"dex": None, "wis": None}, "req": {}},
+                "relevantabilities": {"Dexterity": None, "Wisdom": None}, "req": None},
     "IdleGossip": {"bp_cost": 1, "die": 12, "universal": True, "tally": 0, "skill": 100,
-                   "relevantabilities": {"cha": None}, "req": {}},
+                   "relevantabilities": {"Charisma": None}, "req": None},
     "Interrogation": {"bp_cost": 5, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                      "relevantabilities": {"stre": None, "wis": None}, "req": {}},
+                      "relevantabilities": {"Strength": None, "Wisdom": None}, "req": None},
     "Intimidation": {"bp_cost": 2, "die": 4, "universal": True, "tally": 0, "skill": 100,
-                     "relevantabilities": {"cha": None}, "req": {}},
+                     "relevantabilities": {"Charisma": None}, "req": None},
     "Jeweler": {"bp_cost": 9, "die": 6, "universal": False, "tally": 0, "skill": 100,
-                "relevantabilities": {"inte": None}, "req": {"Appraisal(minerals)": 90}},
+                "relevantabilities": {"Inteligence": None}, "req": ("Appraisal", 90)},
     "JokeTelling": {"bp_cost": 1, "die": 4, "universal": True, "tally": 0, "skill": 100,
-                    "relevantabilities": {"cha": None}, "req": {}},
+                    "relevantabilities": {"Charisma": None}, "req": None},
     "Journalism/Composition": {"bp_cost": 2, "die": 6, "universal": False, "tally": 0, "skill": 100,
-                               "relevantabilities": {"inte": None}, "req": {"ReadingComp./Penmanship": 80}},
+                               "relevantabilities": {"Inteligence": None}, "req": ("ReadingComp./Penmanship", 80)},
     "Juggling": {"bp_cost": 2, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                 "relevantabilities": {"dex": None}, "req": {}},
+                 "relevantabilities": {"Dexterity": None}, "req": None},
     "Language": {"bp_cost": 5, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                 "relevantabilities": {"inte": None}, "req": {}},
-    "Law": {"bp_cost": 6, "die": 6, "universal": False, "tally": 0, "skill": 100, "relevantabilities": {"inte": None},
-            "req": {"ReadingComp./Penmanship": 60}},
+                 "relevantabilities": {"Inteligence": None}, "req": None},
+    "Law": {"bp_cost": 6, "die": 6, "universal": False, "tally": 0, "skill": 100,
+            "relevantabilities": {"Inteligence": None},
+            "req": ("ReadingComp./Penmanship", 60)},
     "Leatherworking": {"bp_cost": 1, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                       "relevantabilities": {"dex": None, "inte": None}, "req": {}},
+                       "relevantabilities": {"Dexterity": None, "Inteligence": None}, "req": None},
     "Listening": {"bp_cost": 5, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                  "relevantabilities": {"wis": None}, "req": {}},
+                  "relevantabilities": {"Wisdom": None}, "req": None},
     "LockPicking": {"bp_cost": 8, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                    "relevantabilities": {"dex": None, "inte": None}, "req": {"Listening": 85}},
+                    "relevantabilities": {"Dexterity": None, "Inteligence": None}, "req": ("Listening", 85)},
     "Locksmithing": {"bp_cost": 4, "die": 6, "universal": False, "tally": 0, "skill": 100,
-                          "relevantabilities": {"dex": None, "inte": None}, "req": {}},
+                     "relevantabilities": {"Dexterity": None, "Inteligence": None}, "req": None},
     "Logging": {"bp_cost": 3, "die": 20, "universal": False, "tally": 0, "skill": 100,
-                "relevantabilities": {"stre": None, "inte": None}, "req": {}},
+                "relevantabilities": {"Strength": None, "Inteligence": None}, "req": None},
     "MachineOperating/Repairing": {"bp_cost": 2, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                                        "relevantabilities": {"inte": None}, "req": {}},
+                                   "relevantabilities": {"Inteligence": None}, "req": None},
     "Mathematics": {"bp_cost": 6, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                    "relevantabilities": {"inte": None}, "req": {"ReadingComp./Penmanship": 90}},
+                    "relevantabilities": {"Inteligence": None}, "req": ("ReadingComp./Penmanship", 90)},
     "Medicine": {"bp_cost": 10, "die": 4, "universal": False, "tally": 0, "skill": 100,
-                      "relevantabilities": {"dex": None, "inte": None}, "req": {}},
+                 "relevantabilities": {"Dexterity": None, "Inteligence": None}, "req": None},
     "MilitaryEngineering": {"bp_cost": 2, "die": 4, "universal": False, "tally": 0, "skill": 100,
-                            "relevantabilities": {"inte": None}, "req": {"EngineeringDesign": 80}},
+                            "relevantabilities": {"Inteligence": None}, "req": ("Engineering Design", 80)},
     "MilitaryStrategy/Tactics": {"bp_cost": 5, "die": 6, "universal": False, "tally": 0, "skill": 100,
-                                      "relevantabilities": {"inte": None}, "req": {}},
+                                 "relevantabilities": {"Inteligence": None}, "req": None},
     "Millinery": {"bp_cost": 1, "die": 10, "universal": False, "tally": 0, "skill": 100,
-                  "relevantabilities": {"inte": None}, "req": {}},
+                  "relevantabilities": {"Inteligence": None}, "req": None},
     "MimicDialect": {"bp_cost": 1, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                          "relevantabilities": {"cha": None}, "req": {}},
+                     "relevantabilities": {"Charisma": None}, "req": None},
     "Nursing": {"bp_cost": 3, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                "relevantabilities": {"wis": None}, "req": {}},
+                "relevantabilities": {"Wisdom": None}, "req": None},
     "Observation": {"bp_cost": 6, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                    "relevantabilities": {"wis": None}, "req": {}},
+                    "relevantabilities": {"Wisdom": None}, "req": None},
     "Oration": {"bp_cost": 2, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                "relevantabilities": {"inte": None, "cha": None}, "req": {}},
+                "relevantabilities": {"Inteligence": None, "Charisma": None}, "req": None},
     "Photography": {"bp_cost": 1, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                    "relevantabilities": {"inte": None}, "req": {"Chemistry": 85}},
+                    "relevantabilities": {"Inteligence": None}, "req": ("Chemistry", 85)},
     "PickPocket": {"bp_cost": 9, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                   "relevantabilities": {"dex": None}, "req": {}},
+                   "relevantabilities": {"Dexterity": None}, "req": None},
     "Pottery": {"bp_cost": 1, "die": 10, "universal": False, "tally": 0, "skill": 100,
-                     "relevantabilities": {"dex": None, "wis": None}, "req": {}},
+                "relevantabilities": {"Dexterity": None, "Wisdom": None}, "req": None},
     "PrimitiveRangedWeaponUse": {"bp_cost": 4, "die": 12, "universal": False, "tally": 0, "skill": 100,
-                                      "relevantabilities": {"dex": None}, "req": {}},
+                                 "relevantabilities": {"Dexterity": None}, "req": None},
     "PrimitiveWeaponMaking": {"bp_cost": 6, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                              "relevantabilities": {"dex": None}, "req": {}},
+                              "relevantabilities": {"Dexterity": None}, "req": None},
     "Prospecting": {"bp_cost": 9, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                    "relevantabilities": {"wis": None}, "req": {}},
+                    "relevantabilities": {"Wisdom": None}, "req": None},
     "ReadingComp./Penmanship": {"bp_cost": 4, "die": 6, "universal": False, "tally": 0, "skill": 100,
-                                "relevantabilities": {"inte": None}, "req": {}},
+                                "relevantabilities": {"Inteligence": None}, "req": None},
     "ReadingLips": {"bp_cost": 7, "die": 4, "universal": True, "tally": 0, "skill": 100,
-                    "relevantabilities": {"inte": None}, "req": {}},
+                    "relevantabilities": {"Inteligence": None}, "req": None},
     "Recruiting": {"bp_cost": 4, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                   "relevantabilities": {"cha": None}, "req": {}},
+                   "relevantabilities": {"Charisma": None}, "req": None},
     "Religion": {"bp_cost": 5, "die": 12, "universal": True, "tally": 0, "skill": 100,
-                 "relevantabilities": {"inte": None}, "req": {}},
+                 "relevantabilities": {"Inteligence": None}, "req": None},
     "ResistPersuasion": {"bp_cost": 2, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                         "relevantabilities": {"wis": None}, "req": {}},
+                         "relevantabilities": {"Wisdom": None}, "req": None},
     "Riding": {"bp_cost": 3, "die": 8, "universal": True, "tally": 0, "skill": 100,
-               "relevantabilities": {"dex": None, "wis": None}, "req": {}},
-    "RopeUse": {"bp_cost": 2, "die": 8, "universal": True, "tally": 0, "skill": 100, "relevantabilities": {"dex": None},
-                "req": {}},
+               "relevantabilities": {"Dexterity": None, "Wisdom": None}, "req": None},
+    "RopeUse": {"bp_cost": 2, "die": 8, "universal": True, "tally": 0, "skill": 100,
+                "relevantabilities": {"Dexterity": None},
+                "req": None},
     "Salesmanship": {"bp_cost": 7, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                     "relevantabilities": {"inte": None, "wis": None, "cha": None}, "req": {}},
+                     "relevantabilities": {"Inteligence": None, "Wisdom": None, "Charisma": None}, "req": None},
     "Seamstress/Tailor": {"bp_cost": 1, "die": 12, "universal": False, "tally": 0, "skill": 100,
-                          "relevantabilities": {"dex": None}, "req": {}},
+                          "relevantabilities": {"Dexterity": None}, "req": None},
     "Searching": {"bp_cost": 5, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                       "relevantabilities": {"wis": None}, "req": {}},
+                  "relevantabilities": {"Wisdom": None}, "req": None},
     "Seduction": {"bp_cost": 1, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                       "relevantabilities": {"cha": None, "lks    ": None}, "req": {}},
+                  "relevantabilities": {"Charisma": None, "Looks": None}, "req": None},
     "SetTraps": {"bp_cost": 10, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                 "relevantabilities": {"dex": None}, "req": {}},
+                 "relevantabilities": {"Dexterity": None}, "req": None},
     "Skinning/Tanning": {"bp_cost": 3, "die": 8, "universal": True, "tally": 0, "skill": 100,
-                         "relevantabilities": {"stre": None, "wis": None}, "req": {}},
+                         "relevantabilities": {"Strength": None, "Wisdom": None}, "req": None},
     "Slaughter": {"bp_cost": 2, "die": 10, "universal": True, "tally": 0, "skill": 100,
-                  "relevantabilities": {"stre": None, "inte": None}, "req": {}},
+                  "relevantabilities": {"Strength": None, "Inteligence": None}, "req": None},
     "SleightofHand": {"bp_cost": 2, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                      "relevantabilities": {"dex": None}, "req": {}},
+                      "relevantabilities": {"Dexterity": None}, "req": None},
     "SlickTalker": {"bp_cost": 4, "die": 4, "universal": False, "tally": 0, "skill": 100,
-                    "relevantabilities": {"inte": None, "cha": None}, "req": {}},
+                    "relevantabilities": {"Inteligence": None, "Charisma": None}, "req": None},
     "Sneaking": {"bp_cost": 8, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                 "relevantabilities": {"dex": None}, "req": {}},
+                 "relevantabilities": {"Dexterity": None}, "req": None},
     "SocialEtiquette": {"bp_cost": 4, "die": 6, "universal": False, "tally": 0, "skill": 100,
-                        "relevantabilities": {"cha": None}, "req": {}},
+                        "relevantabilities": {"Charisma": None}, "req": None},
     "Stonemasonry": {"bp_cost": 2, "die": 10, "universal": False, "tally": 0, "skill": 100,
-                     "relevantabilities": {"stre": None, "inte": None}, "req": {}},
+                     "relevantabilities": {"Strength": None, "Inteligence": None}, "req": None},
     "Survival": {"bp_cost": 7, "die": 6, "universal": True, "tally": 0, "skill": 100,
-                 "relevantabilities": {"con": None, "wis": None, "inte": None}, "req": {}},
+                 "relevantabilities": {"Constitution": None, "Wisdom": None, "Inteligence": None}, "req": None},
     "Swimming": {"bp_cost": 1, "die": 12, "universal": False, "tally": 0, "skill": 100,
-                 "relevantabilities": {"stre": None, "con": None}, "req": {}},
+                 "relevantabilities": {"Strength": None, "Constitution": None}, "req": None},
     "TelegraphOperating": {"bp_cost": 4, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                           "relevantabilities": {"inte": None}, "req": {"ReadingComp./Penmanship": 90}},
+                           "relevantabilities": {"Inteligence": None}, "req": ("ReadingComp./Penmanship", 90)},
     "Tracking": {"bp_cost": 9, "die": 4, "universal": True, "tally": 0, "skill": 100,
-                 "relevantabilities": {"wis": None}, "req": {}},
+                 "relevantabilities": {"Wisdom": None}, "req": None},
     "Ventriloquism": {"bp_cost": 8, "die": 4, "universal": True, "tally": 0, "skill": 100,
-                      "relevantabilities": {"inte": None}, "req": {}},
+                      "relevantabilities": {"Inteligence": None}, "req": None},
     "WeatherSense": {"bp_cost": 3, "die": 4, "universal": True, "tally": 0, "skill": 100,
-                     "relevantabilities": {"stre": None}, "req": {}},
+                     "relevantabilities": {"Strength": None}, "req": None},
     "Weaving": {"bp_cost": 1, "die": 8, "universal": False, "tally": 0, "skill": 100,
-                "relevantabilities": {"dex": None, "inte": None}, "req": {}},
+                "relevantabilities": {"Dexterity": None, "Inteligence": None}, "req": None},
 }
 
 lmc_status = (
-    (3, "Agent",()),
-    (5, "Auctioneer",()),
-    (7, "Bank Clerk",()),
-    (9, "Barber",()),
-    (11, "Bartender",()),
-    (13, "Bording house keeper",()),
-    (15, "Book Keeper",()),
-    (18, "Clerk",()),
-    (20, "Confectioner",()),
-    (22, "Druggist",()),
-    (24, "Editor",()),
-    (26, "furniture Maker ",()),
-    (30, "Grocer",()),
-    (32, "Hostler",()),
-    (34, "Insurance Agent",()),
-    (36, "Hotel Keeper",()),
-    (38, "Poor House Keeper",()),
-    (40, "Land Agent",()),
-    (43, "Landlord",()),
-    (45, "Lightening rod seller",()),
-    (47, "Lumber Merchant",()),
-    (54, "Merchant Other",()),
-    (57, "Clergyman Preacher",()),
-    (58, "Music Teacher",()),
-    (60, "Peddler",()),
-    (62, "Produce Dealer",()),
-    (66, "Brewer",()),
-    (68, "Speculator",()),
-    (72, "Tobacconist",()),
-    (74, "Saloon Keeper",()),
-    (80, "Teacher",()),
-    (82, "Constable",()),
-    (84, "Express Agent",()),
-    (86, "Fireman",()),
-    (88, "Justice of the Peace",()),
-    (90, "Mail Carrier",()),
-    (92, "Public Notary",()),
-    (94, "Post Master",()),
-    (96, "Rail Road Agent",()),
-    (98, "Deputy Sherrif",()),
-    (100, "Street Inspector",()),
+    (3, "Agent", "Diplomacy"),
+    (5, "Auctioneer", "Salesmanship"),
+    (7, "Bank Clerk", "Accounting"),
+    (9, "Barber", "GleanInformation"),
+    (11, "Bartender", "GleanInformation"),
+    (13, "Bording house keeper", "GleanInformation"),
+    (15, "Book Keeper", "Accounting"),
+    (18, "Clerk", "ReadingComp./Penmanship"),
+    (20, "Confectioner", "Cooking"),
+    (22, "Druggist", "Chemistry"),
+    (24, "Editor", "ReadingComp./Penmanship"),
+    (26, "furniture Maker ", "Carpentry"),
+    (30, "Grocer", "Accounting"),
+    (32, "Hostler", "AnimalEmpathy"),
+    (34, "Insurance Agent", "Appraisal"),
+    (36, "Hotel Keeper", "GleanInformation"),
+    (38, "Poor House Keeper", "GleanInformation"),
+    (40, "Land Agent", "Appraisal"),
+    (43, "Landlord", "GleanInformation"),
+    (45, "Lightening rod seller", "Accounting"),
+    (47, "Lumber Merchant", "Accounting"),
+    (54, "Merchant Other", "Accounting"),
+    (57, "Clergyman Preacher", "Religion"),
+    (58, "Music Teacher", "ArtisticAbility"),
+    (60, "Peddler", "Salesmanship"),
+    (62, "Produce Dealer", "Accounting"),
+    (66, "Brewer", "Brewing"),
+    (68, "Speculator", "Appraisal"),
+    (72, "Tobacconist", "Accounting"),
+    (74, "Saloon Keeper", "Accounting"),
+    (80, "Teacher", "Mathematics"),
+    (82, "Constable", "Interrogation"),
+    (84, "Express Agent", "Droving"),
+    (86, "Fireman", "Fire-Building/Extinguishing"),
+    (88, "Justice of the Peace", "Oration"),
+    (90, "Mail Carrier", "IdleGossip"),
+    (92, "Public Notary", "Forgery"),
+    (94, "Post Master", "Administration"),
+    (96, "Rail Road Agent", "Diplomacy"),
+    (98, "Deputy Sherrif", "Interrogation"),
+    (100, "Street Inspector", "Administration"),
 )
 
 mmc_status = (
-    (10, "Civil Engineer",()),
-    (20, "Watchmaker",()),
-    (27, "Dentist",()),
-    (31, "Engineer",()),
-    (35, "Steam/Locomotive Engineer",()),
-    (43, "Jeweler",()),
-    (51, "Miller Steam",()),
-    (59, "Nurse",()),
-    (68, "Doctor",()),
-    (76, "Railroad Boss",()),
-    (84, "Silversmith",()),
-    (92, "Steamboat Captain",()),
-    (100, "Surveyor",()),
+    (10, "Civil Engineer", "Engineering Design"),
+    (20, "Watchmaker", "Engineering Design"),
+    (27, "Dentist", "Dentistry"),
+    (31, "Engineer", "Engineering Design"),
+    (35, "Steam/Locomotive Engineer", "Engineering Design"),
+    (43, "Jeweler", "Jeweler"),
+    (51, "Miller Steam", "MachineOperating/Repairing"),
+    (59, "Nurse", "Nursing"),
+    (68, "Doctor", "Medicine"),
+    (76, "Railroad Boss", "Administration"),
+    (84, "Silversmith", "Blacksmithing/Metalworking"),
+    (92, "Steamboat Captain", "Boating"),
+    (100, "Surveyor", "Cartography"),
 )
 
 umc_status = (
-    (10, "Banker", ("Accounting", "Mathematics")),
-    (20, "Jeweler", ("Jeweler", "Appraisal")),
-    (30, "Land Owner", ("Administration")),
-    (40, "Lawyer",("Law")),
-    (50, "Established Merchant",("Diplomacy")),
-    (60, "Military Officer(retired)",("MilitaryStrategy/Tactics")),
-    (70, "Mine Owner",()),
-    (80, "Ranch Owner",()),
-    (90, "Established Physician",()),
-    (100, "Railroad Shareholder",()),
+    (10, "Banker", "Accounting"),
+    (20, "Jeweler", "Jeweler"),
+    (30, "Land Owner", "Administration"),
+    (40, "Lawyer", "Law"),
+    (50, "Established Merchant", "Diplomacy"),
+    (60, "Military Officer(retired)", "MilitaryStrategy/Tactics"),
+    (70, "Mine Owner", "Administration"),
+    (80, "Ranch Owner", "Administration"),
+    (90, "Established Physician", "Medicine"),
+    (100, "Railroad Shareholder", "Administration"),
 )
 
+mlcR_status = (
+    (2, "Cook", "Cooking"),
+    (4, "Drover", "Droving"),
+    (64, "Farm Hand", "Agriculture"),
+    (84, "Farmer", "Agriculture"),
+    (85, "Fisherman", "Fishing"),
+    (86, "Sailor", "Boating"),
+    (88, "Gardener", "Agriculture"),
+    (90, "Hunter", "Hunting"),
+    (92, "Labourer", None),
+    (94, "Mill Hand", None),
+    (96, "Miner", "Prospecting"),
+    (98, "Railroad Hand", None),
+    (100, "Lumberjack", "Logging"),
+)
 
-def upfinds(table):
-    roll = dice(100, 1)
-    for index, job, _ in table:
-        if roll <= index:
-            return job
+artisan_status = (
+    (2, "Artist", "ArtisticAbility"),
+    (4, "Baker", "Cooking"),
+    (6, "Basket Maker", "Carpentry"),
+    (9, "Blacksmith", "Blacksmithing/Metalworking"),
+    (10, "Brickmaker", "Stonemasonry"),
+    (15, "Brick Mason", "Stonemasonry"),
+    (17, "Broom Maker", "Carpentry"),
+    (19, "Butcher", "Slaughter"),
+    (21, "Cabinet Maker", "Carpentry"),
+    (26, "Carpenter", "Carpentry"),
+    (27, "Coach Maker", "Carpentry"),
+    (29, "Cooper", "Carpentry"),
+    (31, "Dress Maker", "Seamstress/Tailor"),
+    (34, "Founderer", "Blacksmithing/Metalworking"),
+    (35, "Gunsmith", "Gunsmithing"),
+    (37, "Saddler", "Leatherworking"),
+    (39, "Hatter", "Millinery"),
+    (40, "Ligtening Rod Maker", "Blacksmithing/Metalworking"),
+    (45, "Livery Stable Worker", "AnimalEmpathy"),
+    (47, "Machinist", "MachineOperating/Repairing"),
+    (48, "Master Carpenter", "Carpentry"),
+    (49, "Master Mason", "Stonemasonry"),
+    (51, "Mechanic", "MachineOperating/Repairing"),
+    (54, "Grist Miller", "Agriculture"),
+    (56, "Millinery", "Millinery"),
+    (58, "Moulder", "Carpentry"),
+    (61, "Comercial Painter", "ArtisticAbility"),
+    (63, "Pattern Maker", "Millinery"),
+    (65, "Plasterer", "ArtisticAbility"),
+    (67, "Potter", "Pottery"),
+    (68, "Printer", "MachineOperating/Repairing"),
+    (70, "Rock Dresser", "Stonemasonry"),
+    (73, "Wood Sawyer", "Carpentry"),
+    (75, "Tailor/Seamstress", "Seamstress/Tailor"),
+    (77, "Shoemaker", "Cobbling"),
+    (79, "Stonecutter", "Stonemasonry"),
+    (81, "Stonemason", "Stonemasonry"),
+    (83, "Tailor/Seamstress", "Seamstress/Tailor"),
+    (86, "Tanner", "Skinning/Tanning"),
+    (91, "Textile Mill Worker", "Seamstress/Tailor"),
+    (93, "Tinsmith", "Blacksmithing/Metalworking"),
+    (95, "Wagon Maker", "Carpentry"),
+    (97, "Weaver", "Weaving"),
+    (99, "Wheelwright", "Carpentry"),
+    (100, "Whitewasher", "ArtisticAbility"),
+)
 
 
 def dice(die, number_of_dice):
@@ -592,7 +653,7 @@ def dice(die, number_of_dice):
     return total
 
 
-def percentile_dice():  #calls dice rolls 1D10 -1 (Value between 0-9) * 10 to make tens the rolls and adds 1d10 for the units 
+def percentile_dice():  # calls dice rolls 1D10 -1 (Value between 0-9) * 10 to make tens the rolls and adds 1d10 for the units
     pct = (dice(10, 1) - 1) * 10 + dice(10, 1)
     return pct
 
@@ -629,38 +690,60 @@ def coin():
 
 
 def upfind(table):
-    roll = 80
-    for index, job, *skills, in table:
+    roll = dice(100, 1)
+    if roll <= 20 and table == mlcU_status:
+        table = artisan_status
+        roll = dice(100, 1)
+    for index, job, skill, in table:
         if roll <= index:
-            print (index, job, skills)
-            for sk in skills:
-                if sk != ():
-                    skills_table[sk]["skill"] -= dice(skills_table[sk]["die"], 2)
-                    print (sk, skills_table[sk]["skill"])
+            print(index, job, skill)
+            if skill is not None:
+                zz = pc_stats[relevant_abilty(skill)]['stat']
+                print("relevant stat", pc_stats[relevant_abilty(skill)], zz)
+                skills_table[skill]["skill"] -= (dice(skills_table[skill]["die"], 2) + pc_stats[relevant_abilty(skill)]['stat'])
+                skills_table[skill]['tally'] += 1
+                print(skill, skills_table[skill]["skill"], "tally", skills_table[skill]["tally"])
+                while skills_table[skill]["req"] is not None:
+                    skill = skills_table[skill]["req"]
+                    i = len(skill)
+                    a, b = 0, 1
+                    while b <= i:
+                        key, value = skill[a], skill[b]
+                        skills_table[key]["skill"] = value
+                        skills_table[key]['tally'] += 1
+                        a += 2
+                        b += 2
+                    print(key, skills_table[key]["skill"], "tally", skills_table[key]["tally"])
+                    skill = key
             return job
 
 
-print (upfind(umc_status))
 
 
-def mk_stat():
-    ability = dice(6, 3)
-    pct = percentile_dice()
-    if pct == 100:
-        ability = ability + 1
-        pct = 0
-    return (ability, pct)
+def universal_sk_prep():
+    for skill in skills_table:
+        if skills_table[skill]["universal"] is True:
+            skills_table[skill]["skill"] -= pc_stats[relevant_abilty(skill)]['stat']
+            print(skill, skills_table[skill]["skill"])
 
 
 pc_stats = {"Strength": {'stat': 0, 'pct': 0},
             "Inteligence": {'stat': 0, 'pct': 0},
             "Wisdom": {'stat': 0, 'pct': 0, },
             "Dexterity": {'stat': 0, 'pct': 0},
-            "Consitution": {'stat': 0, 'pct': 0},
+            "Constitution": {'stat': 0, 'pct': 0},
             "Looks": {'stat': 0, 'pct': 0},
             "Charisma": {'stat': 0, 'pct': 0},
 }
 
+ruUrBk = "Urban"
+rep = 0
+fame = 0
+money = 0
+social_class = None
+pob = None
+sex = "Male"
+age = 0
 
 def mk_pcstats():
     for s in pc_stats:
@@ -673,11 +756,17 @@ def mk_pcstats():
                 pc_stats[s][i] = j
 
 
-mk_pcstats()
-print (pc_stats)
+def mk_hp():
+    mod = chk_con()
+    hp = dice(4,1) + 20 + mod["hp_mod"]
+    return hp
+
+def printstats():
+    for stats in pc_stats.items():
+        print(stats)
 
 
-def table_check(stat, table):
+def table_check(stat, table, ):
     if table is (stre_table or dex_table):
         if stat["pct"] < 50:
             stat_pctLookup = 1
@@ -695,7 +784,7 @@ def chk_stre():
 
 
 def chk_con():
-    chk = table_check(pc_stats['Consitution'], con_table)
+    chk = table_check(pc_stats['Constitution'], con_table)
     return chk
 
 
@@ -724,16 +813,32 @@ def chk_dex():
     return chk
 
 
-print (chk_looks())
 
-ruUrBk = "Urban"
-rep = 0
-fame = 0
-money = 0
-social_class = None
-pob = None
-sex = "Male"
 
+
+def relevant_abilty(skill):
+    rr = {}
+    for k in skills_table[skill]["relevantabilities"]:
+        rr.update({k: (pc_stats[k]["stat"])})
+    return min(rr, key=rr.get)
+
+
+def attrib_lookup(attrib):
+    if attrib == "Strength":
+        chk = chk_stre()
+    elif attrib == "Inteligence":
+        chk = chk_inte()
+    elif attrib == "Charisma":
+        chk = chk_cha()
+    elif attrib == "Constitution":
+        chk = chk_con()
+    elif attrib == "Dexterity":
+        chk = chk_dex()
+    elif attrib == "Wisdom":
+        chk = chk_wis()
+    elif attrib == "Looks":
+        chk = chk_looks()
+    return chk
 
 def mk_rep():
     a = 0
@@ -741,13 +846,12 @@ def mk_rep():
     for s in pc_stats:
         for i, k in pc_stats[s].items():
             if i == 'pct':
-                a = a + k
+                a += k
             else:
-                b = b + k
-        a /= 100
-        a = round((a + b) / 7)
-        a = a + looks_table[(pc_stats['Looks']['stat'])]["rep_mod"] + cha_table[(pc_stats['Charisma']['stat'])][
-            "rep_mod"]
+                b += k
+    a /= 100
+    a = round((a + b) / 7)
+    a = a + looks_table[(pc_stats['Looks']['stat'])]["rep_mod"] + cha_table[(pc_stats['Charisma']['stat'])]["rep_mod"]
     return a, rep_table[a]
 
 
@@ -1276,9 +1380,9 @@ def mk_siblingStatus():
             siblingStatus[s]["Relation"] = relation
 
     for s in siblingStatus:
-        print (siblingStatus[s])
+        print(siblingStatus[s])
     #change this later to return instead of print
-    print (mk_upBringing(siblingStatus))
+    print(mk_upBringing(siblingStatus))
     return siblingStatus
 
 
@@ -1411,86 +1515,23 @@ def freeEscapedSlave():
     if roll in range(1, 9):
         prof = "Cook"
         #example of how the table should be manipulated. Gets 2 free tallies in cooking for prof. Rolls 2 times the die in the skills_table for cooking removes the roll from skill in cooking
-        skills_table["Cooking"]["skill"] = skills_table["Cooking"]["skill"] - dice(skills_table["Cooking"]["die"], 2)
+        skills_table["Cooking"]["skill"] -= dice(skills_table["Cooking"]["die"], 2)
     elif roll in range(9, 80):
         prof = "Farm Hand"
+        skills_table["Agriculture"]["skill"] -= dice(skills_table["Agriculture"]["die"], 2)
     else:
         prof = "Laborer"
     return prof
 
 
-mlcR_status = (
-    (2, "Cook",()),
-    (4, "Drover",()),
-    (64, "Farm Hand",()),
-    (84, "Farmer",()),
-    (85, "Fisherman",()),
-    (86, "Sailor",()),
-    (88, "Gardener",()),
-    (90, "Hunter",()),
-    (92, "Labourer",()),
-    (94, "Mill Hand",()),
-    (96, "Miller",()),
-    (98, "Railroad Hand",()),
-    (100, "Lumberjack",()),
-)
-
-artisan_status = (
-    (2, "Artist",()),
-    (4, "Baker",()),
-    (6, "Basket Maker",()),
-    (9, "Blacksmith",()),
-    (10, "Brickmaker",()),
-    (15, "Brick Mason",()),
-    (17, "Broom Maker",()),
-    (19, "Butcher",()),
-    (21, "Cabinet Maker",()),
-    (26, "Carpenter",()),
-    (27, "Coach Maker",()),
-    (29, "Cooper",()),
-    (31, "Dress Maker",()),
-    (34, "Founderer",()),
-    (35, "Gunsmith",()),
-    (37, "Saddler",()),
-    (39, "Hatter",()),
-    (40, "Ligtening Rod Maker",()),
-    (45, "Livery Stable Worker",()),
-    (47, "Machinist",()),
-    (48, "Master Carpenter",()),
-    (49, "Master Mason",()),
-    (51, "Mechanic",()),
-    (54, "Grist Miller",()),
-    (56, "Millinery",()),
-    (58, "Moulder",()),
-    (61, "Comercial Painter",()),
-    (63, "Pattern Maker",()),
-    (65, "Plasterer",()),
-    (67, "Potter",()),
-    (68, "Printer",()),
-    (70, "Rock Dresser",()),
-    (73, "Wood Sawyer",()),
-    (75, "Tailor/Seamstress",()),
-    (77, "Shoemaker",()),
-    (79, "Stonecutter",()),
-    (81, "Stonemason",()),
-    (83, "Tailor/Seamstress",()),
-    (86, "Tanner",()),
-    (91, "Textile Mill Worker",()),
-    (93, "Tinsmith",()),
-    (95, "Wagon Maker",()),
-    (97, "Weaver",()),
-    (99, "Wheelwright",()),
-    (100, "Whitewasher",()),
-)
-
 mlcU_status = (
-    (20, upfinds(artisan_status)),
-    (30, "Cook", ()),
-    (35, "Gardener", ()),
-    (65, "Labourer", ()),
-    (85, "Domestic Servant", ()),
-    (95, "Servant Other", ()),
-    (100, "Laundry Worker", ()),
+    (20, None, None),
+    (30, "Cook", "Cooking"),
+    (35, "Gardener", "Agriculture"),
+    (65, "Labourer", None),
+    (85, "Domestic Servant", None),
+    (95, "Servant Other", None),
+    (100, "Laundry Worker", None),
 )
 
 
@@ -1567,7 +1608,7 @@ def llc_status():
         elif roll in range(2, 5):
             job = "Vagrant"
         elif roll in range(5, 7):
-            job = "Criminal"
+            job = "Petty Criminal"
 
     if job == "Freed Slave":
         prof = freeEscapedSlave()
@@ -1580,32 +1621,28 @@ def llc_status():
 #print skills_table["Cooking"]      
 
 
-#def testy(stat,pct):
-#    if pct < 50:
-#        stat_pctLookup = 1
-#   else:
-#        stat_pctLookup = 51
-#   der = stat_table[stat][stat_pctLookup]
-#    return(stat,stat_pct,der)
 
 
-
-
-#print str_table[stre][stre_pct]
-#print pc_stats['Looks']['stat']
-
-print (mk_rep())
-print ("Background and Place of Birth ", mk_RuUrBk())
+mk_pcstats()
+printstats()
+print("Reputation", mk_rep())
+print("Background and Place of Birth ", mk_RuUrBk())
 age = (mk_age())
-print ("Age ", age)
+print("Age ", age)
 height = mk_height(sex)
-print ("Height Inches ", height)
+print("Height Inches ", height)
 weight = mk_weight(height, sex, age)
-print ("weight ", weight, " Pounds")
-print (mk_handed(), " Handed ")
+print("weight ", weight, " Pounds")
+print(mk_handed(), " Handed ")
 mk_siblingStatus()
-print (mk_parentStatus())
-print ("base money ", mk_money())
-print (mk_socialClass())
-print (skills_table["Accounting"])
+print(mk_parentStatus())
+print("base money ", mk_money())
+print(mk_socialClass())
+print(skills_table)
+#print(chk_inte('skill_learning_mod'))
+print(relevant_abilty("Disguise"))
+universal_sk_prep()
+print( "Hit Points ", mk_hp())
+
+
 
